@@ -1,7 +1,3 @@
-#include <unistd.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
 #include "philo.h"
 
 int ft_check_argc(char *str)
@@ -40,12 +36,18 @@ int	ft_atoi(const char *nptr)
 }
 int main(int argc, char *argv[])
 {
-    if (argc > 6 || argc < 6)
+    t_container container;
+
+    if (argc > 6 || argc < 5)
     {
-        printf("Number of arguments doesn't match what's needed.\n");
-        printf("Please enter: <nbr of philos> <time to die> <time to eat>");
-        printf(" <time to sleep> <nbr of times philos must eat>\n");
-        return (1);
+        ft_print_instructions();
+        return (WRONG_INPUT);
+    }
+    else
+    {
+        // 1)errors checking, filling structure - container
+
+        //2) creating the actual thing
     }
     int i;
     i = 1;
