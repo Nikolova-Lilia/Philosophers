@@ -45,9 +45,19 @@ int main(int argc, char *argv[])
     }
     else
     {
-        // 1)errors checking, filling structure - container
+        // 1)errors checking, is the input correct?!
+        //filling container data
+        if (ft_parse_input(&container, argc, argv) == false)
+            return(WRONG_INPUT);
 
-        //2) creating the actual thing
+        // 2)mallocing philos & forks
+        data_init(&container);
+
+        // 3)actual simulation
+        ft_dinner(&container);
+
+        // 4) deallocation ->philos full || 1 philo died
+        ft_clean(&container);
     }
     int i;
     i = 1;

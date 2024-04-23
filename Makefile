@@ -11,7 +11,7 @@ CFLAGS = -Wall -Wextra -Werror
 DEPS = philo.h
 
 #Sources
-SRC = main.c printf.c
+SRC = main.c printf.c parse.c 
 
 #Objects
 OBJ = $(SRC:.c=.o)

@@ -77,6 +77,8 @@ struct s_container
     t_philo *philos;    //array for philos
 };
 
-void ft_print_instructions(void);
+void    ft_print_instructions(void);
+bool    ft_parse_input(t_container *container, int argc, char *argv[]);
+
 
 #endif

@@ -1,6 +1,6 @@
 #include "philo.h"
 
-void ft_print_instructions(void)
+void    ft_print_instructions(void)
 {
     printf("Number of arguments doesn't match what's needed.\n");
     printf("Please enter: <nbr of philos> <time to die> <time to eat>");
