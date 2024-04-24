@@ -11,10 +11,12 @@ static bool ft_digit_check(const char *str)
             str++;
         else if(*str == 45)
         {
-            flag++;
-            str++;
-            if (flag > 1)
-                return (false);
+            //flag++;
+            //str++;
+            //if (flag > 1)
+            //    return (false);
+            printf("Incorrect input. Please enter positive number.\n");
+            return (false);
         }
         else
             return(false);
@@ -74,22 +76,22 @@ static bool ft_max_int_check(int nbr)
 static long    ft_atol(const char *str)
 {
 	long	result;
-	int	sign;
+	//int	sign;
 
 	result = 0;
-	sign = 1;
-	if (*str == '-')
-	{
-		if (*str == '-')
-			sign *= -1;
-		str++;
-	}
+	//sign = 1;
+	//if (*str == '-')
+	//{
+	//	if (*str == '-')
+	//		sign *= -1;
+	//	str++;
+	//}
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + *str - '0';
 		str++;
 	}
-	return (result * sign);
+	return (result); //* sign);
 }
 /*
     Step1: Checking input & converting to int
