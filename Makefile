@@ -5,7 +5,7 @@ NAME = philo
 CC = cc
 
 #Flags
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 #header
 DEPS = philo.h

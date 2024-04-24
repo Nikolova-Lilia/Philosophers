@@ -42,7 +42,7 @@ static bool ft_argv_check(int argc, char *argv[])
     int i;
 
     i = 1;
-    while(i <= argc)
+    while(i < argc)
     {
         if (ft_digit_check(argv[i]) == false)
         {
@@ -52,7 +52,7 @@ static bool ft_argv_check(int argc, char *argv[])
         i++;
     }
     i = 1;
-    while (i <= argc)
+    while (i < argc)
     {
         if (ft_strlen(argv[i]) == false)
         {
@@ -114,7 +114,7 @@ bool    ft_parse_input(t_container *container, int argc, char *argv[])
     if (ft_argv_check(argc, argv) == false)
         return(false);
     i = 1;
-    while (i <= argc)
+    while (i < argc)
     {
         result_check = ft_atol(argv[i]);
         if (ft_int_check(result_check) == false)

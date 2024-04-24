@@ -14,7 +14,10 @@ int main(int argc, char *argv[])
         // 1)errors checking, is the input correct?!
         //filling container data
         if (ft_parse_input(&container, argc, argv) == false)
-            return(WRONG_INPUT);
+        {
+        ft_print_instructions();
+        return (WRONG_INPUT);
+        }
 
         // 2)mallocing philos & forks
         //data_init(&container);
