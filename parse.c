@@ -1,21 +1,5 @@
 #include "philo.h"
 
-static bool ft_argv_check(int argc, char *argv[])
-{
-    int i;
-
-    i = 1;
-    while(i <= argc)
-    {
-        if (ft_digit_check(argv[i]) == false)
-        {
-            printf("Error. Please enter digits\n");
-            return(WRONG_INPUT);
-        }
-        i++;
-    }
-
-}
 static bool ft_digit_check(const char *str)
 {
     int flag;
@@ -37,29 +21,73 @@ static bool ft_digit_check(const char *str)
     }
     return (true);
 }
+
+static bool ft_strlen(const char *str)
+{
+    int i;
+
+    i = 0;
+    while(str[i] != '\0')
+    {
+        i++;
+    }
+    if (i > 10)
+        return(false);
+
+    return(true);
+}
+
+static bool ft_argv_check(int argc, char *argv[])
+{
+    int i;
+
+    i = 1;
+    while(i <= argc)
+    {
+        if (ft_digit_check(argv[i]) == false)
+        {
+            printf("Error. Please enter digits\n");
+            return(WRONG_INPUT);
+        }
+        i++;
+    }
+    i = 1;
+    while (i <= argc)
+    {
+        if (ft_strlen(argv[i]) == false)
+        {
+            printf("Number too long. Please enter nbr smaller than MAX_INT\n");
+            return(WRONG_INPUT);
+        }
+        i++;
+    }
+    return (true);
+}
+
+static bool ft_max_int_check(int nbr)
+{
+    if (nbr > MAX_INT)
+        return (false);
+    return (true);
+}
+
 static long    ft_atol(const char *str)
 {
 	long	result;
-
-    str = ft_check_argv(str);
 	int	sign;
 
 	result = 0;
 	sign = 1;
-	while ((*nptr >= 9 && *nptr <= 13) || (*nptr == 32))
-		nptr++;
-	if (*nptr == '\0')
-		return (0);
-	if (*nptr == '-' || *nptr == '+')
+	if (*str == '-')
 	{
-		if (*nptr == '-')
+		if (*str == '-')
 			sign *= -1;
-		nptr++;
+		str++;
 	}
-	while (*nptr >= '0' && *nptr <= '9')
+	while (*str >= '0' && *str <= '9')
 	{
-		result = result * 10 + *nptr - '0';
-		nptr++;
+		result = result * 10 + *str - '0';
+		str++;
 	}
 	return (result * sign);
 }
