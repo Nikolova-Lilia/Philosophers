@@ -64,7 +64,7 @@ static bool ft_argv_check(int argc, char *argv[])
     return (true);
 }
 
-static bool ft_int_check(int nbr)
+static bool ft_int_check(long long nbr)
 {
     if (nbr > INT_MAX)
         return (false);
@@ -73,9 +73,9 @@ static bool ft_int_check(int nbr)
     return (true);
 }
 
-static long    ft_atol(const char *str)
+static long long    ft_atol(const char *str)
 {
-	long	result;
+	long long	result;
 	int	sign;
 
 	result = 0;
@@ -108,7 +108,7 @@ static long    ft_atol(const char *str)
 
 bool    ft_parse_input(t_container *container, int argc, char *argv[])
 {
-    int result_check;
+    long long result_check;
     int i;
 
     if (ft_argv_check(argc, argv) == false)
