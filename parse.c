@@ -11,12 +11,10 @@ static bool ft_digit_check(const char *str)
             str++;
         else if(*str == 45)
         {
-            //flag++;
-            //str++;
-            //if (flag > 1)
-            //    return (false);
-            printf("Incorrect input. Please enter positive number.\n");
-            return (false);
+            flag++;
+            str++;
+            if (flag > 1)
+                return (false);
         }
         else
             return(false);
@@ -66,9 +64,11 @@ static bool ft_argv_check(int argc, char *argv[])
     return (true);
 }
 
-static bool ft_max_int_check(int nbr)
+static bool ft_int_check(int nbr)
 {
-    if (nbr > MAX_INT)
+    if (nbr > INT_MAX)
+        return (false);
+    if (nbr < 0)
         return (false);
     return (true);
 }
@@ -76,23 +76,24 @@ static bool ft_max_int_check(int nbr)
 static long    ft_atol(const char *str)
 {
 	long	result;
-	//int	sign;
+	int	sign;
 
 	result = 0;
-	//sign = 1;
-	//if (*str == '-')
-	//{
-	//	if (*str == '-')
-	//		sign *= -1;
-	//	str++;
-	//}
+	sign = 1;
+	if (*str == '-')
+	{
+		if (*str == '-')
+			sign *= -1;
+		str++;
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		result = result * 10 + *str - '0';
 		str++;
 	}
-	return (result); //* sign);
+	return (result * sign);
 }
+
 /*
     Step1: Checking input & converting to int
 
@@ -107,8 +108,24 @@ static long    ft_atol(const char *str)
 
 bool    ft_parse_input(t_container *container, int argc, char *argv[])
 {
+    int result_check;
+    int i;
+
     if (ft_argv_check(argc, argv) == false)
         return(false);
-
+    i = 1;
+    while (i <= argc)
+    {
+        result_check = ft_atol(argv[i]);
+        if (ft_int_check(result_check) == false)
+            return (false);
+        i++;
+    }
     container->philo_nbr = ft_atol(argv[1]);
+    container->time_to_die = ft_atol(argv[2]);
+    container->time_to_eat = ft_atol(argv[3]);
+    container->time_to_sleep = ft_atol(argv[4]);
+    if (argc == 6)
+        container->nbr_total_meals = ft_atol(argv[5]);
+    return (true);
 }

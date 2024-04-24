@@ -8,6 +8,7 @@
                         //threads: create join detach
 #include <sys/time.h>   //gettimeofday
 #include <stdbool.h>
+#include <limits.h>
 
 # define WRONG_INPUT 1
 /*input: 
