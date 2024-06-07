@@ -76,5 +76,6 @@ void ft_monitor_check(t_container *container,t_philo *philo);
 void ft_finish(t_container *container, t_philo *philo);
 void ft_set_dead(t_container *container, int value);
 int ft_get_dead(t_container *container);
-
+int ft_meal_lock(t_container *container, t_philo *philo);
+bool ft_mutex_handle(t_container *container, t_philo *philo);
 #endif

@@ -18,6 +18,7 @@ bool ft_thread_start(t_container *container, t_philo *philo) // 👻
     return (true);
 }
 
+//updated
 void ft_monitor_check(t_container *container,t_philo *philo)
 {
     int i;
@@ -34,18 +35,26 @@ void ft_monitor_check(t_container *container,t_philo *philo)
                 ft_set_dead(container, 1);
             }
             pthread_mutex_unlock(&(container->meal_check));
-            //usleep(100);
         }
         if (ft_get_dead(container))
             break;
-        i = 0;
-        pthread_mutex_lock(&container->meal_lock);
-        while (container->nbr_meals != -1 && i < container->nbr_philo && philo[i].x_ate >= container->nbr_meals)
-            i++;
-        pthread_mutex_unlock(&container->meal_lock);
+        i = ft_meal_lock(container, philo);
         if (i == container->nbr_philo)
             container->all_ate = 1;
     }
+}
+
+//new added
+int ft_meal_lock(t_container *container, t_philo *philo)
+{
+    int i;
+
+    i = 0;
+    pthread_mutex_lock(&container->meal_lock);
+    while (container->nbr_meals != -1 && i < container->nbr_philo && philo[i].x_ate >= container->nbr_meals)
+        i++;
+    pthread_mutex_unlock(&container->meal_lock);
+    return (i);
 }
 
 void ft_finish(t_container *container, t_philo *philo)
