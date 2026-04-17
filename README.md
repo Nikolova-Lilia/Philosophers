@@ -22,6 +22,8 @@ This project is inspired by the famous Dining Philosophers problem, where a grou
 Sounds peaceful? Not quite.
 
 
+
+
 ⚔️ The Problem
 
 
@@ -39,6 +41,9 @@ This leads to some classic chaos:
 
 
 The mission is to simulate this system while keeping everything running smoothly.
+
+
+
 
 
 🧵 What’s Under the Hood
@@ -59,6 +64,9 @@ Synchronization ⚙️
 Build a system where multiple philosophers act independently… but don’t destroy each other in the process.
 
 
+
+
+
 🎯 Objective
 
 
@@ -72,6 +80,10 @@ Forks are shared safely 🍴
 Output is clean and not a total mess 🖨️
 
 The system avoids deadlocks and starvation 🚫
+
+
+
+
 
 🧠 Why This Matters
 
@@ -92,6 +104,9 @@ Preventing everything from freezing or crashing
 In other words: this is a first real step into concurrent programming.
 
 
+
+
+
 🚀 Final Thought
 
 
@@ -102,6 +117,8 @@ Take too long? 💀
 Grab forks too aggressively? 🔒 Deadlock.
 
 Don’t think things through? 😵 Chaos.
+
+
 
 
 Words of wisdom: So code wisely — your philosophers’ lives depend on it.
